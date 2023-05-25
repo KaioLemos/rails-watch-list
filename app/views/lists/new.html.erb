@@ -1,0 +1,21 @@
+<h1>New List</h1>
+
+<%= simple_form_for @list do |form| %>
+  <% if @list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
+
+      <ul>
+        <% @list.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.input :name %>
+
+  <div class="actions">
+    <%= form.button :submit, "Create List" %>
+  </div>
+<% end %>

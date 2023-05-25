@@ -1,0 +1,22 @@
+<h1>New Bookmark</h1>
+
+<%= simple_form_for [@list, @bookmark] do |form| %>
+  <% if @bookmark.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bookmark.errors.count, "error") %> prohibited this bookmark from being saved:</h2>
+
+      <ul>
+        <% @bookmark.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.input :movie_id, collection: Movie.all, label: "Movie" %>
+  <%= form.input :comment, as: :text, input_html: { rows: 4 } %>
+
+  <div class="actions">
+    <%= form.button :submit, "Create Bookmark" %>
+  </div>
+<% end %>
