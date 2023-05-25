@@ -3,11 +3,13 @@
 <p><strong>Name:</strong> <%= @list.name %></p>
 
 <h2>Movies in the List:</h2>
-
-<ul>
-  <% @list.movies.each do |movie| %>
-    <li><%= movie.title %></li>
+<% @movies_with_comments.each do |movie| %>
+  <h3><%= movie.title %></h3>
+  <% movie.bookmarks.each do |bookmark| %>
+    <p><strong>Comment:</strong> <%= bookmark.comment %></p>
   <% end %>
-</ul>
+<% end %>
+
+<p><%= link_to 'Create New Bookmark', new_list_bookmark_path(@list) %></p>
 
 <%= link_to 'Back to Lists', lists_path %>

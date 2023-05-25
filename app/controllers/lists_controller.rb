@@ -5,7 +5,9 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    @movies_with_comments = @list.movies.includes(:bookmarks).where.not(bookmarks: { comment: nil })
   end
+
 
   def new
     @list = List.new

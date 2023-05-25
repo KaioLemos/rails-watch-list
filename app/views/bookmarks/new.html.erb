@@ -13,10 +13,13 @@
     </div>
   <% end %>
 
-  <%= form.input :movie_id, collection: Movie.all, label: "Movie" %>
-  <%= form.input :comment, as: :text, input_html: { rows: 4 } %>
+  <%= form.input :movie_id, collection: @movies, label: "Movie" %>
+  <%= form.input :comment, as: :text, input_html: { rows: 4 }, label: "Comment" %>
 
   <div class="actions">
     <%= form.button :submit, "Create Bookmark" %>
   </div>
 <% end %>
+
+
+<%# http://localhost:3000/lists/1/bookmarks/new %>
